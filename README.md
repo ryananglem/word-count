@@ -16,3 +16,6 @@ best 1
 etc
 
 The text file included probably needs to be stripped of special characters etc, but I think this demonstrates the general idea of the steps involved
+
+To run, clone the repo in Visual Studio and run. After the list of words appears, press any key to close.
+
