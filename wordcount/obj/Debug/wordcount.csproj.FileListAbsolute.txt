@@ -1,0 +1,13 @@
+C:\dev\vs\test\wordcount\wordcount\bin\Debug\wordcount.exe.config
+C:\dev\vs\test\wordcount\wordcount\bin\Debug\wordcount.exe
+C:\dev\vs\test\wordcount\wordcount\bin\Debug\wordcount.pdb
+C:\dev\vs\test\wordcount\wordcount\bin\Debug\Ninject.dll
+C:\dev\vs\test\wordcount\wordcount\bin\Debug\wordcount.services.dll
+C:\dev\vs\test\wordcount\wordcount\bin\Debug\wordcount.textfilerepo.dll
+C:\dev\vs\test\wordcount\wordcount\bin\Debug\wordcount.services.pdb
+C:\dev\vs\test\wordcount\wordcount\bin\Debug\wordcount.textfilerepo.pdb
+C:\dev\vs\test\wordcount\wordcount\bin\Debug\Ninject.xml
+C:\dev\vs\test\wordcount\wordcount\obj\Debug\wordcount.csprojResolveAssemblyReference.cache
+C:\dev\vs\test\wordcount\wordcount\obj\Debug\wordcount.exe
+C:\dev\vs\test\wordcount\wordcount\obj\Debug\wordcount.pdb
+C:\dev\vs\test\wordcount\wordcount\bin\Debug\text.txt
