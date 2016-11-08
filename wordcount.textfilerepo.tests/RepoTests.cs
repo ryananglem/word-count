@@ -6,15 +6,16 @@ namespace wordcount.textfilerepo.tests
     [TestClass]
     public class RepoTests
     {
+        private int _chunkSize = 2000;
+        private string _filename = "text.txt";
+
         [TestMethod]
         public void construct_repo()
         {
-            // arrange
-            var chunkSize = 2000;
-            var filename = "text.txt";
+            // arrange   
 
             // act
-            var repo = new Repo(chunkSize, filename);
+            var repo = new TextFileDocumentRepo(_chunkSize, _filename);
 
             // assert
             Assert.IsNotNull(repo);
@@ -25,10 +26,9 @@ namespace wordcount.textfilerepo.tests
         {
             // arrange
             var chunkSize = 0;
-            var filename = "text.txt";
 
             // act
-            var repo = new Repo(chunkSize, filename);
+            var repo = new TextFileDocumentRepo(chunkSize, _filename);
 
             // assert
             Assert.Fail("should produce exception");
@@ -42,7 +42,7 @@ namespace wordcount.textfilerepo.tests
             var filename = "";
 
             // act
-            var repo = new Repo(chunkSize, filename);
+            var repo = new TextFileDocumentRepo(chunkSize, filename);
 
             // assert
             Assert.Fail("should produce exception");
@@ -54,7 +54,7 @@ namespace wordcount.textfilerepo.tests
         public void get_chunk_of_text_from_actual_file()
         {
             // arrange
-            var repo = new Repo(100, "text.txt");
+            var repo = new TextFileDocumentRepo(100, "text.txt");
 
             // act
             var result = repo.GetChunkOfText(0);
@@ -71,7 +71,7 @@ namespace wordcount.textfilerepo.tests
         public void dont_read_past_end_of_file()
         {
             // arrange
-            var repo = new Repo(100, "text.txt");
+            var repo = new TextFileDocumentRepo(100, "text.txt");
 
             // act
             var result = repo.GetChunkOfText(1100);

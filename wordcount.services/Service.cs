@@ -8,25 +8,26 @@ namespace wordcount.services
 {
     public class Service : IService
     {
-        private IRepo _repo;
+        private readonly IDocumentRepo _documentRepository;
 
-        public Service (IRepo repository)
+        public Service (IDocumentRepo documentRepository)
         {
-            if (repository == null) throw new ArgumentNullException(nameof(repository));
-            _repo = repository;
+            if (documentRepository == null) throw new ArgumentNullException(nameof(documentRepository));
+
+            _documentRepository = documentRepository;
         }
 
-        // so.. dictionary was probably the word that 
-        // I was missing in the interview
-        public Dictionary<string, int> GetWordList()
+        public Dictionary<string, int> CountWordsInDocument()
         {
             var list = new Dictionary<string, int>();
-
             var start = 0;
-            var text = _repo.GetChunkOfText(start);
-            while(text != string.Empty)
+            var text = _documentRepository.GetChunkOfText(start)
+                                .StripExtraCharacters()
+                                .ToLower();
+            
+            while (text != string.Empty)
             {
-                var lastPosition = text.LastIndexOf(" ");
+                var lastPosition = text.LastIndexOf(" ", StringComparison.Ordinal);
                 if (lastPosition == -1 || lastPosition == 0)
                 {
                     list = parseText(text.Substring(0, text.Length), list);
@@ -34,7 +35,9 @@ namespace wordcount.services
                 }
                 list = parseText(text.Substring(0, lastPosition), list);
                 
-                text = _repo.GetChunkOfText(start + lastPosition);
+                text = _documentRepository.GetChunkOfText(start + lastPosition)
+                         .StripExtraCharacters()
+                         .ToLower();
                 start = start + lastPosition;
             }
             return list;

@@ -4,11 +4,8 @@
 
 /TestResults
 /packages
-/wordcount.services/bin/Debug
-/wordcount.services/obj/Debug
-/wordcount.services.tests/bin/Debug
-/wordcount.services.tests/obj/Debug
-/wordcount.textfilerepo/bin/Debug
-/wordcount.textfilerepo/obj/Debug
-/wordcount.textfilerepo.tests/bin/Debug
-/wordcount.textfilerepo.tests/obj/Debug
+bin/
+obj/
+*.dll
+*.pdb
+*.suo

@@ -41,9 +41,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IService.cs" />
-    <Compile Include="IRepo.cs" />
+    <Compile Include="IDocumentRepo.cs" />
+    <Compile Include="IWordCountRepo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service.cs" />
+    <Compile Include="StringExtension.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -1,7 +1,6 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
-using System.Collections.Generic;
 
 namespace wordcount.services.tests
 {
@@ -12,10 +11,10 @@ namespace wordcount.services.tests
         public void construct_service()
         {
             // arrange
-            var repo = new Mock<IRepo>();
+            var mockDocumentRepo = new Mock<IDocumentRepo>();
 
             // act
-            var service = new Service(repo.Object);
+            var service = new Service(mockDocumentRepo.Object);
 
             // assert
             Assert.IsNotNull(service);
@@ -30,29 +29,28 @@ namespace wordcount.services.tests
             var service = new Service(null);
 
             // assert
-            Assert.Fail("repo is null");
+            Assert.IsNull(service);
         }
 
         [TestMethod]
         public void get_words_from_text()
         {
             // arrange
-            var repo = new Mock<IRepo>();
-            var service = new Service(repo.Object);
-            repo.Setup(x => x.GetChunkOfText(It.Is<int>(s => s == 0)))
+            var mockDocumentRepo = new Mock<IDocumentRepo>();
+            var service = new Service(mockDocumentRepo.Object);
+            mockDocumentRepo.Setup(x => x.GetChunkOfText(It.Is<long>(s => s == 0)))
                 .Returns("the quick brown fox is the text to use when testing brown things");
-            repo.Setup(x => x.GetChunkOfText(It.Is<int>(s => s == 57)))
+            mockDocumentRepo.Setup(x => x.GetChunkOfText(It.Is<long>(s => s == 57)))
                 .Returns("things");
 
             // act
-            var result = service.GetWordList();
+            var result = service.CountWordsInDocument();
 
             // assert
             Assert.AreEqual(11, result.Count);
             Assert.AreEqual(2, result["the"]);
             Assert.AreEqual(2, result["brown"]);
             Assert.AreEqual(1, result["quick"]);
-
         }
     }
 }

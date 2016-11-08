@@ -4,6 +4,6 @@ namespace wordcount.services
 {
     public interface IService
     {
-        Dictionary<string, int> GetWordList();
+        Dictionary<string, int> CountWordsInDocument();
     }
 }

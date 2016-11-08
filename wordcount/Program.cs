@@ -13,14 +13,17 @@ namespace wordcount
 
             var wordCountService = kernel.Get<services.Service>();
             
-            var words = wordCountService.GetWordList();
+            var words = wordCountService.CountWordsInDocument();
+            var sortedWords = new SortedDictionary<string, int>(words);
 
             // presentation layer
-            foreach (KeyValuePair<string, int> word in words)
+            foreach (var word in sortedWords)
             {
-                Console.WriteLine(String.Format("{0}  - {1}", word.Key, word.Value));
+                Console.WriteLine($"{word.Key}  - {word.Value}");
             }
 
+            Console.WriteLine(String.Empty);
+            Console.WriteLine("Press any key to end..");
             Console.ReadKey();
         }
     }

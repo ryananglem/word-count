@@ -40,7 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Repo.cs" />
+    <Compile Include="TextFileDocumentRepo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -50,6 +50,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="big.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="text.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

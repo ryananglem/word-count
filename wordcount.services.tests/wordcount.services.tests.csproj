@@ -66,6 +66,10 @@
       <Project>{7e9b26f0-022d-414d-9ef3-01b1cea56e7c}</Project>
       <Name>wordcount.services</Name>
     </ProjectReference>
+    <ProjectReference Include="..\wordcount.textfilerepo\wordcount.textfilerepo.csproj">
+      <Project>{88839026-7FD3-46C5-A258-BA9C7A64BFEB}</Project>
+      <Name>wordcount.textfilerepo</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
